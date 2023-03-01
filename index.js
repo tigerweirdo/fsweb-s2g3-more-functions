@@ -16,9 +16,14 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+ 
+function dosyaAdiniBul(dosyayolu) {
+  
+  let dizi = (dosyayolu.split("/"));
+  let dosya = dizi[dizi.length - 1];
+  return dosya;
 }
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
 
 /*
   GÖREV 2
@@ -38,9 +43,18 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+  let toplam = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    toplam += numbers[i];
+  }
+  return toplam / numbers.length;
 }
+
+console.log (ortalamaBul([1,2,3,4,5]));
 
 /*
   GÖREV 3
@@ -62,9 +76,21 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(numbers, ortalamaBulFn) {
+  const ort = ortalamaBulFn(numbers);
+  if (ort === null) {
+    return null;
+  }
+  const buyukler = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] >= ort) {
+      buyukler.push(numbers[i]);
+    }
+  }
+  return buyukler;
 }
+
+console.log(ortalamadanBuyukleriBul([1,2,3,4,5], ortalamaBul));
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
